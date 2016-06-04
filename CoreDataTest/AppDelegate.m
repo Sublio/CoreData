@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DMStudent.h"
 
 @interface AppDelegate ()
 
@@ -57,7 +58,7 @@
         
         NSLog(@"%@", [fetchError localizedDescription]);
     }
-    
+    /*
     
     NSLog(@"%@", resultArray);
     
@@ -66,7 +67,16 @@
         
         NSLog(@"%@, %@ - %@", [object valueForKey:@"firstName"], [object valueForKey:@"lastName"], [object valueForKey:@"score"] );
         
+    }*/
+    
+    for (DMStudent* object in resultArray){
+        
+        
+        NSLog(@"%@, %@ - %@", object.firstName, object.lastName, object.score);
+        
     }
+    
+    
     
     return YES;
 }

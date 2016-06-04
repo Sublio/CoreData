@@ -15,6 +15,7 @@
 		8D236D531D03035E00E47438 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D236D521D03035E00E47438 /* Images.xcassets */; };
 		8D236D561D03035E00E47438 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D236D541D03035E00E47438 /* LaunchScreen.xib */; };
 		8D236D621D03035E00E47438 /* CoreDataTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D611D03035E00E47438 /* CoreDataTestTests.m */; };
+		8D236D6D1D03228D00E47438 /* DMStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D6C1D03228D00E47438 /* DMStudent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		8D236D5B1D03035E00E47438 /* CoreDataTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D236D601D03035E00E47438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D236D611D03035E00E47438 /* CoreDataTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTestTests.m; sourceTree = "<group>"; };
+		8D236D6B1D03228C00E47438 /* DMStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMStudent.h; sourceTree = "<group>"; };
+		8D236D6C1D03228D00E47438 /* DMStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMStudent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 			children = (
 				8D236D461D03035E00E47438 /* AppDelegate.h */,
 				8D236D471D03035E00E47438 /* AppDelegate.m */,
+				8D236D6B1D03228C00E47438 /* DMStudent.h */,
+				8D236D6C1D03228D00E47438 /* DMStudent.m */,
 				8D236D4C1D03035E00E47438 /* ViewController.h */,
 				8D236D4D1D03035E00E47438 /* ViewController.m */,
 				8D236D4F1D03035E00E47438 /* Main.storyboard */,
@@ -225,6 +230,7 @@
 				8D236D481D03035E00E47438 /* AppDelegate.m in Sources */,
 				8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */,
 				8D236D4E1D03035E00E47438 /* ViewController.m in Sources */,
+				8D236D6D1D03228D00E47438 /* DMStudent.m in Sources */,
 				8D236D451D03035E00E47438 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
