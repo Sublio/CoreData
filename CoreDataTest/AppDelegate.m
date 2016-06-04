@@ -23,7 +23,7 @@
     
     //NSLog(@"%@",[self.managedObjectModel entitiesByName]);
     self.managedObjectContext;
-    
+    /*
     NSManagedObject* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
     
     [student setValue:@"Denis" forKey:@"firstName"];
@@ -38,7 +38,35 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
+    */
     
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+  
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [request setEntity:description];
+    //[request setResultType:NSDictionaryResultType];
+    
+    NSError* fetchError = nil;
+    
+    NSArray* resultArray =  [self.managedObjectContext executeFetchRequest:request error:&fetchError];
+    
+    if (fetchError){
+        
+        NSLog(@"%@", [fetchError localizedDescription]);
+    }
+    
+    
+    NSLog(@"%@", resultArray);
+    
+    for (NSManagedObject* object in resultArray){
+        
+        
+        NSLog(@"%@, %@ - %@", [object valueForKey:@"firstName"], [object valueForKey:@"lastName"], [object valueForKey:@"score"] );
+        
+    }
     
     return YES;
 }
