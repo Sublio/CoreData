@@ -13,9 +13,35 @@
 
 @end
 
+
+static NSString* firstNames[] = {
+    @"Tran", @"Lenore", @"Bud", @"Fredda", @"Katrice", @"Clyde", @"Hildegard",
+    @"Vernell", @"Nellie", @"Rupert", @"Billie", @"Tamica", @"Crystle", @"Kandi", @"Caridad",
+    @"Vanetta", @"Taylor", @"Pinkie", @"Ben", @"Rosanna", @"Eufemia", @"Brittney", @"Ramon",
+    @"Jacque", @"Telma", @"Colton", @"Monte", @"Pam", @"Tracy", @"Tresa", @"Willard", @"Mireille",
+    @"Roma", @"Elise", @"Trang", @"Ty", @"Pierre", @"Floyd", @"Savanna", @"Arvilla", @"Whitney",
+    @"Denver", @"Norbert", @"Meghan",@"Tandra", @"Jenise", @"Brent",@"Elenor", @"Sha",@"Jessie"
+};
+
+static NSString* lastNames[] = {
+    @"Farrah", @"Laviolette", @"Heal", @"Sechrest", @"Roots", @"Homan", @"Starns", @"Oldham", @"Yocum",
+    @"Mancia", @"Prill", @"Lush", @"Piedra", @"Castenada", @"Warnock", @"Vanderlinden", @"Simms",@"Gilroy",
+    @"Brann", @"Bodden", @"Lenz", @"Gildersleeve", @"Wimbish", @"Bello", @"Beachy", @"Jurado", @"William",
+    @"Beapure", @"Dyal", @"Doiron", @"Plourde", @"Bator", @"Krause", @"Odriscoll", @"Corby", @"Waltman",
+    @"Michaud", @"Kobayashi", @"Sherrick", @"Wollfolk", @"Holladay", @"Hornback", @"Moler", @"Bowles",
+    @"Libbey", @"Spano", @"Folson", @"Arguelles", @"Burke", @"Rook"
+};
+
+
 @implementation AppDelegate
 
 
+
+-(void) addRandomStudent {
+    
+    DMStudent* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+    
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -72,7 +98,9 @@
     for (DMStudent* object in resultArray){
         
         
-        NSLog(@"%@, %@ - %@", object.firstName, object.lastName, object.score);
+        //NSLog(@"%@, %@ - %@", object.firstName, object.lastName, object.score);
+        
+        NSLog(@"%@", object);
         
     }
     
