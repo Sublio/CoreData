@@ -21,6 +21,23 @@
     
     
     
+    //NSLog(@"%@",[self.managedObjectModel entitiesByName]);
+    
+    
+    NSManagedObject* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+    
+    [student setValue:@"Denis" forKey:@"firstName"];
+    [student setValue:@"Mordvinov" forKey:@"lastName"];
+    [student setValue:[NSDate dateWithTimeIntervalSinceReferenceDate:0] forKey:@"dateOfBirth"];
+    [student setValue:@4 forKey:@"score"];
+    
+    NSError* error  = nil;
+    
+    if (![self.managedObjectContext save:&error]){
+        
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
     
     
     return YES;
