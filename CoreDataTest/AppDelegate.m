@@ -37,11 +37,16 @@ static NSString* lastNames[] = {
 
 
 
--(void) addRandomStudent {
+-(DMStudent*) addRandomStudent {
     
     DMStudent* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+    student.score = @((float)arc4random_uniform(201)/200.f +2);
+    student.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:60*60*24*365* arc4random_uniform(31)];
+    student.firstName = firstNames[arc4random_uniform(50)];
+    student.lastName = lastNames[arc4random_uniform(50)];
     
-}
+    return student;
+};
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -66,7 +71,8 @@ static NSString* lastNames[] = {
     }
     
     */
-    
+    DMStudent* student = [self addRandomStudent];
+    [student.managedObjectContext save:nil];
     
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
   
