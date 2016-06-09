@@ -49,69 +49,59 @@ static NSString* lastNames[] = {
 };
 
 
+-(void) printAllObjects{
+    
+    
+    
+    
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    
-    //NSLog(@"%@",[self.managedObjectModel entitiesByName]);
-    self.managedObjectContext;
-    /*
-    NSManagedObject* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
-    
-    [student setValue:@"Denis" forKey:@"firstName"];
-    [student setValue:@"Mordvinov" forKey:@"lastName"];
-    [student setValue:[NSDate dateWithTimeIntervalSinceReferenceDate:0] forKey:@"dateOfBirth"];
-    [student setValue:@4 forKey:@"score"];
+
     
     NSError* error  = nil;
+    /*
+    [self addRandomStudent];
+    [self addRandomStudent];
+    */
     
+     
+     
     if (![self.managedObjectContext save:&error]){
         
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    */
-    DMStudent* student = [self addRandomStudent];
-    [student.managedObjectContext save:nil];
     
-    NSFetchRequest* request = [[NSFetchRequest alloc]init];
-  
-    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     
+     NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+     [request setEntity:description];
+     NSError* requestError = nil;
     
-    [request setEntity:description];
-    //[request setResultType:NSDictionaryResultType];
+     NSArray* resultArray =  [self.managedObjectContext executeFetchRequest:request error:&requestError];
     
-    NSError* fetchError = nil;
-    
-    NSArray* resultArray =  [self.managedObjectContext executeFetchRequest:request error:&fetchError];
-    
-    if (fetchError){
+    if (requestError){
         
-        NSLog(@"%@", [fetchError localizedDescription]);
+        NSLog(@"%@", [requestError localizedDescription]);
+        
     }
-    /*
     
-    NSLog(@"%@", resultArray);
-    
-    for (NSManagedObject* object in resultArray){
-        
-        
-        NSLog(@"%@, %@ - %@", [object valueForKey:@"firstName"], [object valueForKey:@"lastName"], [object valueForKey:@"score"] );
-        
-    }*/
-    
+   
+  
     for (DMStudent* object in resultArray){
         
         
-        //NSLog(@"%@, %@ - %@", object.firstName, object.lastName, object.score);
         
-        NSLog(@"%@", object);
+        NSLog(@"%@, %@,  - %@", object.firstName, object.lastName, object.score);
         
+        
+        [self.managedObjectContext deleteObject:object];
     }
     
-    
-    
+    //[self.managedObjectContext save:nil];
     return YES;
 }
 
