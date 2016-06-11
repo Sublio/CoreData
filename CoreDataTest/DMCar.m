@@ -15,12 +15,12 @@
 @dynamic model;
 @dynamic owner;
 
-
+/*
 -(BOOL) validateForDelete:(NSError **)error{
     
     NSLog(@"DMCar validateForDelete");
     
     return YES;
-};
+};*/
 
 @end
