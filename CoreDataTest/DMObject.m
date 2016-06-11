@@ -1,26 +1,23 @@
 //
-//  DMCar.m
+//  DMObject.m
 //  CoreDataTest
 //
 //  Created by sublio on 11/06/16.
 //  Copyright (c) 2016 sublio. All rights reserved.
 //
 
-#import "DMCar.h"
-#import "DMStudent.h"
+#import "DMObject.h"
 
 
-@implementation DMCar
-
-@dynamic model;
-@dynamic owner;
+@implementation DMObject
 
 
 -(BOOL) validateForDelete:(NSError **)error{
     
-    NSLog(@"DMCar validateForDelete");
+    NSLog(@"ValidateForDelete %@", NSStringFromClass([self class]));
     
     return YES;
 };
+
 
 @end

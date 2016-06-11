@@ -18,4 +18,13 @@
 @dynamic score;
 @dynamic car;
 
+
+
+-(BOOL) validateForDelete:(NSError **)error{
+    
+    NSLog(@"DMStudent validateForDelete");
+    
+    return YES;
+};
+
 @end

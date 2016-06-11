@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "DMObject.h"
 
 @class DMCar;
 
-@interface DMStudent : NSManagedObject
+@interface DMStudent : DMObject
 
 @property (nonatomic) NSTimeInterval dateOfBirth;
 @property (nonatomic, retain) NSString * firstName;

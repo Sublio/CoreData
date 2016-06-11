@@ -99,7 +99,22 @@ static NSString* carModelNames[] = {
     NSArray* allObjects = [self allObjects];
     
     for (id object in allObjects){
-        NSLog(@"%@", object);
+        
+        if ([object isKindOfClass:[DMCar class]]){
+            
+            
+            DMCar* car = (DMCar*) object;
+            NSLog(@"CAR: %@, OWNER: %@, %@", car.model, car.owner.firstName, car.owner.lastName);
+            
+        }else if ([object isKindOfClass:[DMStudent class]]){
+            
+            
+            DMStudent* student = (DMStudent*) object;
+            NSLog(@"STUDENT: %@, %@, CAR: %@", student.firstName, student.lastName, student.car.model);
+            
+        }
+        
+        //NSLog(@"%@", object);
     }
 
     
@@ -125,12 +140,11 @@ static NSString* carModelNames[] = {
 
     
     NSError* error  = nil;
-    /*
-    [self addRandomStudent];
-    [self addRandomStudent];
-    */
     
-     
+    DMStudent* student = [self addRandomStudent];
+    DMCar* car = [self addRandomCar];
+    
+    student.car = car;
      
     if (![self.managedObjectContext save:&error]){
         
@@ -138,33 +152,30 @@ static NSString* carModelNames[] = {
     }
     
     
-     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     
-     NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
-     [request setEntity:description];
-     NSError* requestError = nil;
+    [self printAllObjects];
     
-     NSArray* resultArray =  [self.managedObjectContext executeFetchRequest:request error:&requestError];
     
-    if (requestError){
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMCar" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:description];
+    NSError* requestError = nil;
+    
+    NSArray* resultArray =  [self.managedObjectContext executeFetchRequest:request error:&requestError];
+    
+    if ([resultArray count] > 0){
         
-        NSLog(@"%@", [requestError localizedDescription]);
+        DMCar* car = [resultArray firstObject];
+        [self.managedObjectContext deleteObject:car];
+        [self.managedObjectContext save:nil];
         
     }
     
-   
-  
-    for (DMStudent* object in resultArray){
-        
-        
-        
-        NSLog(@"%@, %@,  - %@", object.firstName, object.lastName, object.score);
-        
-        
-        [self.managedObjectContext deleteObject:object];
-    }
     
-    //[self.managedObjectContext save:nil];
+    [self printAllObjects];
+    
     return YES;
 }
 

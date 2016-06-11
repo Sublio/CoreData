@@ -4,7 +4,7 @@
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMStudent" inverseName="car" inverseEntity="DMStudent" syncable="YES"/>
     </entity>
-    <entity name="DMObject" isAbstract="YES" syncable="YES"/>
+    <entity name="DMObject" representedClassName="DMObject" syncable="YES"/>
     <entity name="DMStudent" representedClassName="DMStudent" parentEntity="DMObject" syncable="YES">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
