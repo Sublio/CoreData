@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DMStudent.h"
+#import "DMCar.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,16 @@ static NSString* lastNames[] = {
 };
 
 
+
+static NSString* carModelNames[] = {
+    
+    
+    @"Dodge", @"Toyota", @"BMW", @"Lada", @"Volga"
+    
+    
+};
+
+
 @implementation AppDelegate
 
 
@@ -40,8 +51,8 @@ static NSString* lastNames[] = {
 -(DMStudent*) addRandomStudent {
     
     DMStudent* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
-    student.score = @((float)arc4random_uniform(201)/200.f +2);
-    student.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:60*60*24*365* arc4random_uniform(31)];
+    student.score = 4;
+    student.dateOfBirth = 4.11;
     student.firstName = firstNames[arc4random_uniform(50)];
     student.lastName = lastNames[arc4random_uniform(50)];
     
@@ -49,11 +60,24 @@ static NSString* lastNames[] = {
 };
 
 
+-(DMCar*) addRandomCar {
+    
+    DMCar* car = [NSEntityDescription insertNewObjectForEntityForName:@"DMCar" inManagedObjectContext:self.managedObjectContext];
+    
+    
+    car.model = carModelNames[arc4random_uniform(5)];
+    
+    return car;
+    
+    
+}
+
+
 -(NSArray*) allObjects{
     
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     
-    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMObject" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:description];
     NSError* requestError = nil;
     
@@ -74,8 +98,8 @@ static NSString* lastNames[] = {
     
     NSArray* allObjects = [self allObjects];
     
-    for (DMStudent* object in allObjects){
-        NSLog(@"%@, %@,  - %@", object.firstName, object.lastName, object.score);
+    for (id object in allObjects){
+        NSLog(@"%@", object);
     }
 
     
@@ -86,7 +110,7 @@ static NSString* lastNames[] = {
     
     NSArray* allObjects = [self allObjects];
     
-    for (DMStudent* object in allObjects){
+    for (id object in allObjects){
         
         [self.managedObjectContext deleteObject:object];
     }

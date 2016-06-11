@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DMCar" representedClassName="DMCar" syncable="YES">
+    <entity name="DMCar" representedClassName="DMCar" parentEntity="DMObject" syncable="YES">
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMStudent" inverseName="car" inverseEntity="DMStudent" syncable="YES"/>
     </entity>
-    <entity name="DMStudent" representedClassName="DMStudent" syncable="YES">
+    <entity name="DMObject" isAbstract="YES" syncable="YES"/>
+    <entity name="DMStudent" representedClassName="DMStudent" parentEntity="DMObject" syncable="YES">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,7 +13,8 @@
         <relationship name="car" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DMCar" inverseName="owner" inverseEntity="DMCar" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DMStudent" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="DMCar" positionX="189" positionY="27" width="128" height="73"/>
+        <element name="DMStudent" positionX="1728" positionY="15300" width="128" height="118"/>
+        <element name="DMCar" positionX="1980" positionY="15345" width="128" height="73"/>
+        <element name="DMObject" positionX="1854" positionY="15129" width="128" height="43"/>
     </elements>
 </model>
