@@ -10,12 +10,12 @@
 		8D236D451D03035E00E47438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D441D03035E00E47438 /* main.m */; };
 		8D236D481D03035E00E47438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D471D03035E00E47438 /* AppDelegate.m */; };
 		8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D491D03035E00E47438 /* CoreDataTest.xcdatamodeld */; };
-		8D236D4E1D03035E00E47438 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D4D1D03035E00E47438 /* ViewController.m */; };
 		8D236D511D03035E00E47438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D236D4F1D03035E00E47438 /* Main.storyboard */; };
 		8D236D531D03035E00E47438 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D236D521D03035E00E47438 /* Images.xcassets */; };
 		8D236D561D03035E00E47438 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D236D541D03035E00E47438 /* LaunchScreen.xib */; };
 		8D236D621D03035E00E47438 /* CoreDataTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D611D03035E00E47438 /* CoreDataTestTests.m */; };
-		8D236D6D1D03228D00E47438 /* DMStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D6C1D03228D00E47438 /* DMStudent.m */; };
+		8DBBEB071D0C079000BEDC54 /* DMStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBEB061D0C079000BEDC54 /* DMStudent.m */; };
+		8DBBEB0A1D0C079100BEDC54 /* DMCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBEB091D0C079100BEDC54 /* DMCar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +35,16 @@
 		8D236D461D03035E00E47438 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D236D471D03035E00E47438 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8D236D4A1D03035E00E47438 /* CoreDataTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTest.xcdatamodel; sourceTree = "<group>"; };
-		8D236D4C1D03035E00E47438 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D236D4D1D03035E00E47438 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D236D501D03035E00E47438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D236D521D03035E00E47438 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D236D551D03035E00E47438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8D236D5B1D03035E00E47438 /* CoreDataTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D236D601D03035E00E47438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D236D611D03035E00E47438 /* CoreDataTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTestTests.m; sourceTree = "<group>"; };
-		8D236D6B1D03228C00E47438 /* DMStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMStudent.h; sourceTree = "<group>"; };
-		8D236D6C1D03228D00E47438 /* DMStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMStudent.m; sourceTree = "<group>"; };
+		8DBBEB051D0C079000BEDC54 /* DMStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMStudent.h; sourceTree = "<group>"; };
+		8DBBEB061D0C079000BEDC54 /* DMStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMStudent.m; sourceTree = "<group>"; };
+		8DBBEB081D0C079100BEDC54 /* DMCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCar.h; sourceTree = "<group>"; };
+		8DBBEB091D0C079100BEDC54 /* DMCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,10 +88,10 @@
 			children = (
 				8D236D461D03035E00E47438 /* AppDelegate.h */,
 				8D236D471D03035E00E47438 /* AppDelegate.m */,
-				8D236D6B1D03228C00E47438 /* DMStudent.h */,
-				8D236D6C1D03228D00E47438 /* DMStudent.m */,
-				8D236D4C1D03035E00E47438 /* ViewController.h */,
-				8D236D4D1D03035E00E47438 /* ViewController.m */,
+				8DBBEB081D0C079100BEDC54 /* DMCar.h */,
+				8DBBEB091D0C079100BEDC54 /* DMCar.m */,
+				8DBBEB051D0C079000BEDC54 /* DMStudent.h */,
+				8DBBEB061D0C079000BEDC54 /* DMStudent.m */,
 				8D236D4F1D03035E00E47438 /* Main.storyboard */,
 				8D236D521D03035E00E47438 /* Images.xcassets */,
 				8D236D541D03035E00E47438 /* LaunchScreen.xib */,
@@ -229,9 +229,9 @@
 			files = (
 				8D236D481D03035E00E47438 /* AppDelegate.m in Sources */,
 				8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */,
-				8D236D4E1D03035E00E47438 /* ViewController.m in Sources */,
-				8D236D6D1D03228D00E47438 /* DMStudent.m in Sources */,
+				8DBBEB071D0C079000BEDC54 /* DMStudent.m in Sources */,
 				8D236D451D03035E00E47438 /* main.m in Sources */,
+				8DBBEB0A1D0C079100BEDC54 /* DMCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +422,7 @@
 				8D236D671D03035E00E47438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D236D681D03035E00E47438 /* Build configuration list for PBXNativeTarget "CoreDataTestTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				8D236D6A1D03035E00E47438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
