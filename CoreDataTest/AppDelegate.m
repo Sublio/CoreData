@@ -125,7 +125,7 @@ static NSString* carModelNames[] = {
             
             
             DMStudent* student = (DMStudent*) object;
-            NSLog(@"STUDENT: %@, %@, CAR: %@", student.firstName, student.lastName, student.car.model);
+            NSLog(@"STUDENT: %@, %@, CAR: %@, University: %@", student.firstName, student.lastName, student.car.model, student.university.name);
             
         }else if ([object isKindOfClass:[DMUniversity class]]){
             
@@ -158,7 +158,7 @@ static NSString* carModelNames[] = {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 
-    
+    /*
     NSError* error  = nil;
     
     DMUniversity* university = [self addUniversity];
@@ -176,7 +176,9 @@ static NSString* carModelNames[] = {
             
         }
         
-        [university addStudentsObject:student];
+        student.university = university;
+        
+        //[university addStudentsObject:student];
         
         
     }
@@ -187,8 +189,8 @@ static NSString* carModelNames[] = {
         
         NSLog(@"%@", [error localizedDescription]);
     }
-    
-    [self deletaAllObjects];
+    */
+    //[self deletaAllObjects];
     
     [self printAllObjects];
     
