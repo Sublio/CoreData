@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DMStudent.h"
 #import "DMCar.h"
+#import "DMUniversity.h"
 
 @interface AppDelegate ()
 
@@ -51,7 +52,8 @@ static NSString* carModelNames[] = {
 -(DMStudent*) addRandomStudent {
     
     DMStudent* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
-    student.score = 4;
+    NSNumber* number = [[NSNumber alloc] initWithInt:4];
+    student.score = number;
     student.dateOfBirth = 4.11;
     student.firstName = firstNames[arc4random_uniform(50)];
     student.lastName = lastNames[arc4random_uniform(50)];
@@ -68,6 +70,19 @@ static NSString* carModelNames[] = {
     car.model = carModelNames[arc4random_uniform(5)];
     
     return car;
+    
+    
+}
+
+
+-(DMUniversity*) addUniversity {
+    
+    DMUniversity* university = [NSEntityDescription insertNewObjectForEntityForName:@"DMUniversity" inManagedObjectContext:self.managedObjectContext];
+    
+    
+    university.name = @"ONPU";
+    
+    return university;
     
     
 }
@@ -112,6 +127,11 @@ static NSString* carModelNames[] = {
             DMStudent* student = (DMStudent*) object;
             NSLog(@"STUDENT: %@, %@, CAR: %@", student.firstName, student.lastName, student.car.model);
             
+        }else if ([object isKindOfClass:[DMUniversity class]]){
+            
+            
+            DMUniversity* university = (DMUniversity*) object;
+            NSLog(@"UNIVERSITY: %@, Students: %lu", university.name, (unsigned long)[university.students count]);
         }
         
         //NSLog(@"%@", object);
@@ -141,17 +161,34 @@ static NSString* carModelNames[] = {
     
     NSError* error  = nil;
     
-    DMStudent* student = [self addRandomStudent];
-    DMCar* car = [self addRandomCar];
+    DMUniversity* university = [self addUniversity];
     
-    student.car = car;
+    
+    for (int i = 0; i < 30; i++) {
+        
+        
+        DMStudent* student = [self addRandomStudent];
+        
+        if(arc4random_uniform(1000)<500){
+            
+            DMCar* car = [self addRandomCar];
+            student.car = car;
+            
+        }
+        
+        [university addStudentsObject:student];
+        
+        
+    }
+    
+    
      
     if (![self.managedObjectContext save:&error]){
         
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    
+    [self deletaAllObjects];
     
     [self printAllObjects];
     
