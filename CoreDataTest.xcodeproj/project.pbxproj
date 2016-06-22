@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0C88351D1AF3CA006B6A48 /* DMUniversity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */; };
 		8D236D451D03035E00E47438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D441D03035E00E47438 /* main.m */; };
 		8D236D481D03035E00E47438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D471D03035E00E47438 /* AppDelegate.m */; };
 		8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D491D03035E00E47438 /* CoreDataTest.xcdatamodeld */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D0C88331D1AF3CA006B6A48 /* DMUniversity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUniversity.h; sourceTree = "<group>"; };
+		8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUniversity.m; sourceTree = "<group>"; };
 		8D236D3F1D03035E00E47438 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D236D431D03035E00E47438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D236D441D03035E00E47438 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				8DBBEB061D0C079000BEDC54 /* DMStudent.m */,
 				8DBBEB0B1D0C1F2D00BEDC54 /* DMObject.h */,
 				8DBBEB0C1D0C1F2D00BEDC54 /* DMObject.m */,
+				8D0C88331D1AF3CA006B6A48 /* DMUniversity.h */,
+				8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */,
 				8D236D4F1D03035E00E47438 /* Main.storyboard */,
 				8D236D521D03035E00E47438 /* Images.xcassets */,
 				8D236D541D03035E00E47438 /* LaunchScreen.xib */,
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0C88351D1AF3CA006B6A48 /* DMUniversity.m in Sources */,
 				8D236D481D03035E00E47438 /* AppDelegate.m in Sources */,
 				8DBBEB0D1D0C1F2D00BEDC54 /* DMObject.m in Sources */,
 				8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */,

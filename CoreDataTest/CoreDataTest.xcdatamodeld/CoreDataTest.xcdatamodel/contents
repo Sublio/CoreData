@@ -13,14 +13,14 @@
         <relationship name="car" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DMCar" inverseName="owner" inverseEntity="DMCar" syncable="YES"/>
         <relationship name="university" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMUniversity" inverseName="students" inverseEntity="DMUniversity" syncable="YES"/>
     </entity>
-    <entity name="DMUniversity" syncable="YES">
+    <entity name="DMUniversity" representedClassName="DMUniversity" parentEntity="DMObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DMStudent" inverseName="university" inverseEntity="DMStudent" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DMStudent" positionX="1728" positionY="15300" width="128" height="133"/>
         <element name="DMCar" positionX="1980" positionY="15345" width="128" height="73"/>
-        <element name="DMObject" positionX="1854" positionY="15129" width="128" height="43"/>
-        <element name="DMUniversity" positionX="1422" positionY="15291" width="128" height="73"/>
+        <element name="DMObject" positionX="1717" positionY="15057" width="128" height="43"/>
+        <element name="DMStudent" positionX="1728" positionY="15300" width="128" height="133"/>
+        <element name="DMUniversity" positionX="1359" positionY="15318" width="128" height="73"/>
     </elements>
 </model>
