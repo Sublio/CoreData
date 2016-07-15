@@ -198,7 +198,7 @@ static NSString* carModelNames[] = {
     
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     
-    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMCar" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:description];
     NSError* requestError = nil;
     
@@ -206,8 +206,10 @@ static NSString* carModelNames[] = {
     
     if ([resultArray count] > 0){
         
-        DMCar* car = [resultArray firstObject];
-        [self.managedObjectContext deleteObject:car];
+        DMStudent* student = [resultArray firstObject];
+        NSLog(@"Student to delete %@", student);
+        
+        [self.managedObjectContext deleteObject:student];
         [self.managedObjectContext save:nil];
         
     }
