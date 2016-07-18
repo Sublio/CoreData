@@ -46,6 +46,10 @@ static NSString* carModelNames[] = {
 };
 
 
+
+
+
+
 @implementation AppDelegate
 
 
@@ -86,6 +90,19 @@ static NSString* carModelNames[] = {
     return university;
     
     
+}
+
+
+
+
+-(DMCourse*) addCoursewithName:(NSString*) name {
+    
+    
+    DMCourse* course = [NSEntityDescription insertNewObjectForEntityForName:@"DMCourse" inManagedObjectContext:self.managedObjectContext];
+    
+    course.name= name;
+    
+    return course;
 }
 
 
@@ -133,6 +150,12 @@ static NSString* carModelNames[] = {
             
             DMUniversity* university = (DMUniversity*) object;
             NSLog(@"UNIVERSITY: %@, Students: %lu", university.name, (unsigned long)[university.students count]);
+            
+        }else if ([object isKindOfClass:[DMCourse class]]){
+            
+            DMCourse* course = (DMCourse*) object;
+            NSLog(@"COURSE: %@, Students: %lu", course.name, (unsigned long)[course.students count]);
+            
         }
         
         //NSLog(@"%@", object);
@@ -162,7 +185,11 @@ static NSString* carModelNames[] = {
     
     NSError* error  = nil;
     
+    NSArray* courses= @[[self addCoursewithName:@"iOS"],[self addCoursewithName:@"Android"],[self addCoursewithName:@"PHP"], [self addCoursewithName:@"Javascript"], [self addCoursewithName:@"HTML"]];
+    
     DMUniversity* university = [self addUniversity];
+    
+    //[university ]
     
     
     for (int i = 0; i < 30; i++) {
