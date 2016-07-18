@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D0C88351D1AF3CA006B6A48 /* DMUniversity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */; };
+		8D0FA2721D3D2F550040D5D6 /* DMCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FA2711D3D2F550040D5D6 /* DMCourse.m */; };
 		8D236D451D03035E00E47438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D441D03035E00E47438 /* main.m */; };
 		8D236D481D03035E00E47438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D471D03035E00E47438 /* AppDelegate.m */; };
 		8D236D4B1D03035E00E47438 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D236D491D03035E00E47438 /* CoreDataTest.xcdatamodeld */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		8D0C88331D1AF3CA006B6A48 /* DMUniversity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUniversity.h; sourceTree = "<group>"; };
 		8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUniversity.m; sourceTree = "<group>"; };
+		8D0FA2701D3D2F550040D5D6 /* DMCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCourse.h; sourceTree = "<group>"; };
+		8D0FA2711D3D2F550040D5D6 /* DMCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCourse.m; sourceTree = "<group>"; };
 		8D236D3F1D03035E00E47438 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D236D431D03035E00E47438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D236D441D03035E00E47438 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,10 +99,12 @@
 				8D236D471D03035E00E47438 /* AppDelegate.m */,
 				8DBBEB081D0C079100BEDC54 /* DMCar.h */,
 				8DBBEB091D0C079100BEDC54 /* DMCar.m */,
-				8DBBEB051D0C079000BEDC54 /* DMStudent.h */,
-				8DBBEB061D0C079000BEDC54 /* DMStudent.m */,
 				8DBBEB0B1D0C1F2D00BEDC54 /* DMObject.h */,
 				8DBBEB0C1D0C1F2D00BEDC54 /* DMObject.m */,
+				8DBBEB051D0C079000BEDC54 /* DMStudent.h */,
+				8DBBEB061D0C079000BEDC54 /* DMStudent.m */,
+				8D0FA2701D3D2F550040D5D6 /* DMCourse.h */,
+				8D0FA2711D3D2F550040D5D6 /* DMCourse.m */,
 				8D0C88331D1AF3CA006B6A48 /* DMUniversity.h */,
 				8D0C88341D1AF3CA006B6A48 /* DMUniversity.m */,
 				8D236D4F1D03035E00E47438 /* Main.storyboard */,
@@ -244,6 +249,7 @@
 				8DBBEB071D0C079000BEDC54 /* DMStudent.m in Sources */,
 				8D236D451D03035E00E47438 /* main.m in Sources */,
 				8DBBEB0A1D0C079100BEDC54 /* DMCar.m in Sources */,
+				8D0FA2721D3D2F550040D5D6 /* DMCourse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

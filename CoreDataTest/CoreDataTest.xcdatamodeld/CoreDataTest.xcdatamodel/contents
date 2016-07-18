@@ -4,6 +4,11 @@
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMStudent" inverseName="car" inverseEntity="DMStudent" syncable="YES"/>
     </entity>
+    <entity name="DMCourse" representedClassName="DMCourse" parentEntity="DMObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DMStudent" inverseName="courses" inverseEntity="DMStudent" syncable="YES"/>
+        <relationship name="university" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMUniversity" inverseName="courses" inverseEntity="DMUniversity" syncable="YES"/>
+    </entity>
     <entity name="DMObject" representedClassName="DMObject" syncable="YES"/>
     <entity name="DMStudent" representedClassName="DMStudent" parentEntity="DMObject" syncable="YES">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
@@ -11,16 +16,19 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="car" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DMCar" inverseName="owner" inverseEntity="DMCar" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DMCourse" inverseName="students" inverseEntity="DMCourse" syncable="YES"/>
         <relationship name="university" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMUniversity" inverseName="students" inverseEntity="DMUniversity" syncable="YES"/>
     </entity>
     <entity name="DMUniversity" representedClassName="DMUniversity" parentEntity="DMObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DMCourse" inverseName="university" inverseEntity="DMCourse" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DMStudent" inverseName="university" inverseEntity="DMStudent" syncable="YES"/>
     </entity>
     <elements>
         <element name="DMCar" positionX="1980" positionY="15345" width="128" height="73"/>
+        <element name="DMCourse" positionX="1377" positionY="15068" width="128" height="88"/>
         <element name="DMObject" positionX="1717" positionY="15057" width="128" height="43"/>
-        <element name="DMStudent" positionX="1728" positionY="15300" width="128" height="133"/>
-        <element name="DMUniversity" positionX="1359" positionY="15318" width="128" height="73"/>
+        <element name="DMStudent" positionX="1728" positionY="15300" width="128" height="148"/>
+        <element name="DMUniversity" positionX="1359" positionY="15318" width="128" height="88"/>
     </elements>
 </model>

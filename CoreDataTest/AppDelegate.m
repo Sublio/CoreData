@@ -10,6 +10,7 @@
 #import "DMStudent.h"
 #import "DMCar.h"
 #import "DMUniversity.h"
+#import "DMCourse.h"
 
 @interface AppDelegate ()
 
@@ -52,8 +53,8 @@ static NSString* carModelNames[] = {
 -(DMStudent*) addRandomStudent {
     
     DMStudent* student = [NSEntityDescription insertNewObjectForEntityForName:@"DMStudent" inManagedObjectContext:self.managedObjectContext];
-    NSNumber* number = [[NSNumber alloc] initWithInt:4];
-    student.score = number;
+    //NSNumber* number = [[NSNumber alloc] initWithInt:4];
+    student.score = @((float)arc4random_uniform(201) /100.f + 2.f);
     student.dateOfBirth = 4.11;
     student.firstName = firstNames[arc4random_uniform(50)];
     student.lastName = lastNames[arc4random_uniform(50)];
@@ -158,7 +159,7 @@ static NSString* carModelNames[] = {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 
-    /*
+    
     NSError* error  = nil;
     
     DMUniversity* university = [self addUniversity];
@@ -189,12 +190,10 @@ static NSString* carModelNames[] = {
         
         NSLog(@"%@", [error localizedDescription]);
     }
-    */
+    
     //[self deletaAllObjects];
     
     [self printAllObjects];
-    
-    
     
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     

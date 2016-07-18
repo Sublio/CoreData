@@ -20,5 +20,8 @@
 @property (nonatomic, retain) NSNumber *score;
 @property (nonatomic, retain) DMCar *car;
 @property (nonatomic, retain) DMUniversity *university;
+@property (nonatomic, retain) NSSet* courses;
+
+
 
 @end
