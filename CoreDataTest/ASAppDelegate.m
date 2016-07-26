@@ -2,8 +2,8 @@
 //  ASAppDelegate.m
 //  CoreDataTest
 //
-//  Created by Oleksii Skutarenko on 31.01.14.
-//  Copyright (c) 2014 Alex Skutarenko. All rights reserved.
+//  Created by Denis Mordvinov on 31.01.16.
+//  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
 
 #import "ASAppDelegate.h"
@@ -83,13 +83,14 @@ static NSString* carModelNames[] = {
     return university;
 }
 
-- (ASCourse*) addCourseWithName:(NSString*) name {
+
+
+- (ASCourse*) addCourseWithName:(NSString*)name {
     
     ASCourse* course =
     [NSEntityDescription insertNewObjectForEntityForName:@"ASCourse"
                                   inManagedObjectContext:self.managedObjectContext];
-    
-    course.name = name;
+    course.name = @"ONPU";
     
     return course;
 }
@@ -114,9 +115,11 @@ static NSString* carModelNames[] = {
     return resultArray;
 }
 
-- (void) printArray:(NSArray*) array {
+- (void) printAllObjects {
     
-    for (id object in array) {
+    NSArray* allObjects = [self allObjects];
+    
+    for (id object in allObjects) {
         
         if ([object isKindOfClass:[ASCar class]]) {
             
@@ -126,32 +129,25 @@ static NSString* carModelNames[] = {
         } else if ([object isKindOfClass:[ASStudent class]]) {
             
             ASStudent* student = (ASStudent*) object;
-            NSLog(@"STUDENT: %@ %@, SCORE: %1.2f, COURSES: %d",
-                  student.firstName, student.lastName,
-                  [student.score floatValue], [student.courses count]);
+            NSLog(@"STUDENT: %@ %@, CAR: %@, UNIVERSITY: %@",
+                  student.firstName, student.lastName, student.car.model, student.university.name);
             
         } else if ([object isKindOfClass:[ASUniversity class]]) {
             
             ASUniversity* university = (ASUniversity*) object;
             NSLog(@"UNIVERSITY: %@ Students: %d", university.name, [university.students count]);
+        
+        }else if ([object isKindOfClass:[ASCourse class]]){
             
-        } else if ([object isKindOfClass:[ASCourse class]]) {
             
             ASCourse* course = (ASCourse*) object;
             NSLog(@"COURSE: %@ Students: %d", course.name, [course.students count]);
+            
+            
         }
         
         //NSLog(@"%@", object);
     }
-    
-    NSLog(@"COUNT = %d", [array count]);
-}
-
-- (void) printAllObjects {
-    
-    NSArray* allObjects = [self allObjects];
-    
-    [self printArray:allObjects];
 }
 
 - (void) deleteAllObjects {
@@ -172,22 +168,15 @@ static NSString* carModelNames[] = {
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    /*
-    [self deleteAllObjects];
     
     NSError* error = nil;
     
-    NSArray* courses = @[[self addCourseWithName:@"iOS"],
-                         [self addCourseWithName:@"Android"],
-                         [self addCourseWithName:@"PHP"],
-                         [self addCourseWithName:@"Javascript"],
-                         [self addCourseWithName:@"HTML"]];
+    
+    
     
     ASUniversity* university = [self addUniversity];
     
-    [university addCourses:[NSSet setWithArray:courses]];
-    
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 30; i++) {
         
         ASStudent* student = [self addRandomStudent];
         
@@ -198,14 +187,7 @@ static NSString* carModelNames[] = {
         
         student.university = university;
         
-        NSInteger number = arc4random_uniform(5) + 1;
-        
-        while ([student.courses count] < number) {
-            ASCourse* course = [courses objectAtIndex:arc4random_uniform(5)];
-            if (![student.courses containsObject:course]) {
-                [student addCoursesObject:course];
-            }
-        }
+        //[university addStudentsObject:student];
     }
     
     if (![self.managedObjectContext save:&error]) {
@@ -214,98 +196,30 @@ static NSString* carModelNames[] = {
     
     //[self deleteAllObjects];
     
-    //[self printAllObjects];
-    */
-    /*
+    [self printAllObjects];
+    
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* description =
-    [NSEntityDescription entityForName:@"ASCourse"
+    [NSEntityDescription entityForName:@"ASUniversity"
                 inManagedObjectContext:self.managedObjectContext];
     
     [request setEntity:description];
-     */
-    //[request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
-    
-    /*
-    NSSortDescriptor* firstNameDescriptor =
-    [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
-    
-    NSSortDescriptor* lastNameDescriptor =
-    [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
-     
-    [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
-    */
-    
-    /*
-    NSSortDescriptor* nameDescriptor =
-    [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    [request setSortDescriptors:@[nameDescriptor]];
-    */
-    //NSArray* validNames = @[@"Clyde", @"Pam", @"Rosanna"];
-    
-    /*
-    NSPredicate* predicate =
-    [NSPredicate predicateWithFormat:
-            @"score > %f AND score <= %f AND "
-            "courses.@count >= %d AND "
-            "firstName IN %@", 3.0, 3.5, 3, validNames];
-    */
-    //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"@max.students.score > %f", 3.9];
-    
-    /*
-    NSPredicate* predicate =
-    [NSPredicate predicateWithFormat:@"SUBQUERY(students, $student, $student.car.model == %@).@count >= %d", @"BMW", 6];
-    
-    [request setPredicate:predicate];
-    */
-    
-    /*
-    [request setFetchBatchSize:20];
     
     NSError* requestError = nil;
     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
     
-    [self printArray:resultArray];
-    */
-    
-    /*
-    NSFetchRequest* request = [[self.managedObjectModel fetchRequestTemplateForName:@"FetchStudents"] copy];
-    
-    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:nil];
-    
-    NSSortDescriptor* firstNameDescriptor =
-    [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
-    
-    NSSortDescriptor* lastNameDescriptor =
-    [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
-    
-    [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
-    
-    [self printArray:resultArray];
-    */
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription* description =
-    [NSEntityDescription entityForName:@"ASCourse"
-                inManagedObjectContext:self.managedObjectContext];
-    
-    [request setEntity:description];
-    
-    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:nil];
-    
-    for (ASCourse* course in resultArray) {
+    if ([resultArray count] > 0) {
+       
+        ASUniversity* university = [resultArray firstObject];
         
-        NSLog(@"COURSE NAME = %@", course.name);
-        NSLog(@"BEST STUDENTS:");
-        [self printArray:course.bestStudents];
-        NSLog(@"BUZY STUDENTS:");
-        [self printArray:course.studentsWithManyCourses];        
+        NSLog(@"university to delete %@", university);
+        
+        [self.managedObjectContext deleteObject:university];
+        [self.managedObjectContext save:nil];
     }
     
-    
+    [self printAllObjects];
     
     return YES;
 }
