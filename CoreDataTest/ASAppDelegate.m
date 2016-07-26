@@ -115,11 +115,10 @@ static NSString* carModelNames[] = {
     return resultArray;
 }
 
-- (void) printAllObjects {
+
+- (void) printArray:(NSArray*)array {
     
-    NSArray* allObjects = [self allObjects];
-    
-    for (id object in allObjects) {
+    for (id object in array) {
         
         if ([object isKindOfClass:[ASCar class]]) {
             
@@ -136,7 +135,7 @@ static NSString* carModelNames[] = {
             
             ASUniversity* university = (ASUniversity*) object;
             NSLog(@"UNIVERSITY: %@ Students: %d", university.name, [university.students count]);
-        
+            
         }else if ([object isKindOfClass:[ASCourse class]]){
             
             
@@ -145,9 +144,17 @@ static NSString* carModelNames[] = {
             
             
         }
-        
-        //NSLog(@"%@", object);
-    }
+
+    
+}
+
+
+- (void) printAllObjects {
+    
+    NSArray* allObjects = [self allObjects];
+    
+    [self printArray:allObjects];
+    
 }
 
 - (void) deleteAllObjects {
@@ -171,12 +178,15 @@ static NSString* carModelNames[] = {
     
     NSError* error = nil;
     
+    [self deleteAllObjects];
     
-    
+    NSArray* courses = @[[self addCourseWithName:@"iOS"], [self addCourseWithName:@"Android"], [self addCourseWithName:@"PHP"],[self addCourseWithName:@"Javascript"], [self addCourseWithName:@"HTML"]];
     
     ASUniversity* university = [self addUniversity];
     
-    for (int i = 0; i < 30; i++) {
+    [university addCourses:[NSSet setWithArray:courses]];
+    
+    for (int i = 0; i < 100; i++) {
         
         ASStudent* student = [self addRandomStudent];
         
@@ -187,7 +197,20 @@ static NSString* carModelNames[] = {
         
         student.university = university;
         
-        //[university addStudentsObject:student];
+        NSInteger number = arc4random_uniform(5);
+        
+        
+        while ([student.courses count] < number) {
+            
+            
+            ASCourse* course = [courses objectAtIndex:arc4random_uniform(5)];
+            
+            if (![student.courses containsObject:course]){
+                
+                [student addCoursesObject:course];
+            }
+        }
+        
     }
     
     if (![self.managedObjectContext save:&error]) {
@@ -198,10 +221,12 @@ static NSString* carModelNames[] = {
     
     [self printAllObjects];
     
+    
+    
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* description =
-    [NSEntityDescription entityForName:@"ASUniversity"
+    [NSEntityDescription entityForName:@"ASStudent"
                 inManagedObjectContext:self.managedObjectContext];
     
     [request setEntity:description];
