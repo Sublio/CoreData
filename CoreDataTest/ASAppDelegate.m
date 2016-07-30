@@ -128,8 +128,7 @@ static NSString* carModelNames[] = {
         } else if ([object isKindOfClass:[ASStudent class]]) {
             
             ASStudent* student = (ASStudent*) object;
-            NSLog(@"STUDENT: %@ %@, CAR: %@, UNIVERSITY: %@",
-                  student.firstName, student.lastName, student.car.model, student.university.name);
+            NSLog(@"STUDENT: %@, %@, CAR: %@,SCORE: %f", student.firstName, student.lastName, student.car.model,[student.score floatValue]);
             
         } else if ([object isKindOfClass:[ASUniversity class]]) {
             
@@ -145,17 +144,15 @@ static NSString* carModelNames[] = {
             
         }
 
-    
+    }
 }
-
 
 - (void) printAllObjects {
-    
+        
     NSArray* allObjects = [self allObjects];
-    
     [self printArray:allObjects];
     
-}
+    }
 
 - (void) deleteAllObjects {
     
@@ -177,7 +174,7 @@ static NSString* carModelNames[] = {
     
     
     NSError* error = nil;
-    
+    /*
     [self deleteAllObjects];
     
     NSArray* courses = @[[self addCourseWithName:@"iOS"], [self addCourseWithName:@"Android"], [self addCourseWithName:@"PHP"],[self addCourseWithName:@"Javascript"], [self addCourseWithName:@"HTML"]];
@@ -221,7 +218,7 @@ static NSString* carModelNames[] = {
     
     [self printAllObjects];
     
-    
+    */
     
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     
@@ -234,17 +231,7 @@ static NSString* carModelNames[] = {
     NSError* requestError = nil;
     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
     
-    if ([resultArray count] > 0) {
-       
-        ASUniversity* university = [resultArray firstObject];
-        
-        NSLog(@"university to delete %@", university);
-        
-        [self.managedObjectContext deleteObject:university];
-        [self.managedObjectContext save:nil];
-    }
-    
-    [self printAllObjects];
+    [self printArray:resultArray];
     
     return YES;
 }
