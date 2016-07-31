@@ -171,10 +171,10 @@ static NSString* carModelNames[] = {
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
+    /*
     
     NSError* error = nil;
-    /*
+    
     [self deleteAllObjects];
     
     NSArray* courses = @[[self addCourseWithName:@"iOS"], [self addCourseWithName:@"Android"], [self addCourseWithName:@"PHP"],[self addCourseWithName:@"Javascript"], [self addCourseWithName:@"HTML"]];
@@ -194,7 +194,7 @@ static NSString* carModelNames[] = {
         
         student.university = university;
         
-        NSInteger number = arc4random_uniform(5);
+        NSInteger number = arc4random_uniform(5) + 1;
         
         
         while ([student.courses count] < number) {
@@ -217,8 +217,8 @@ static NSString* carModelNames[] = {
     //[self deleteAllObjects];
     
     [self printAllObjects];
-    
     */
+    
     
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     
@@ -228,6 +228,14 @@ static NSString* carModelNames[] = {
     
     [request setEntity:description];
     //[request setFetchBatchSize:20];
+    [request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
+    
+    
+    NSSortDescriptor* firstNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+    
+    NSSortDescriptor* lastNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+    
+    [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
     
     
     
