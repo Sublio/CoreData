@@ -128,7 +128,7 @@ static NSString* carModelNames[] = {
         } else if ([object isKindOfClass:[ASStudent class]]) {
             
             ASStudent* student = (ASStudent*) object;
-            NSLog(@"STUDENT: %@, %@, CAR: %@,SCORE: %f", student.firstName, student.lastName, student.car.model,[student.score floatValue]);
+            NSLog(@"STUDENT: %@, %@,SCORE: %f,COURSES: %d", student.firstName, student.lastName,[student.score floatValue], [student.courses count]);
             
         } else if ([object isKindOfClass:[ASUniversity class]]) {
             
@@ -227,9 +227,17 @@ static NSString* carModelNames[] = {
                 inManagedObjectContext:self.managedObjectContext];
     
     [request setEntity:description];
+    //[request setFetchBatchSize:20];
     
+    
+    
+
     NSError* requestError = nil;
     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
+    
+    
+    resultArray = [resultArray subarrayWithRange:NSMakeRange(0, 50)];
+    
     
     [self printArray:resultArray];
     
