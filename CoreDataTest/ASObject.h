@@ -1,5 +1,5 @@
 //
-//  ASAppDelegate.m
+//  ASObject.h
 //  CoreDataTest
 //
 //  Created by Denis Mordvinov on 31.01.16.

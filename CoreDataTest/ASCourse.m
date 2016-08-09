@@ -1,5 +1,5 @@
 //
-//  ASAppDelegate.m
+//  ASCourse.m
 //  CoreDataTest
 //
 //  Created by Denis Mordvinov on 31.01.16.

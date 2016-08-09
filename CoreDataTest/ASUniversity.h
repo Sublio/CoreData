@@ -1,5 +1,5 @@
 //
-//  ASAppDelegate.m
+//  ASUniversity.h
 //  CoreDataTest
 //
 //  Created by Denis Mordvinov on 31.01.16.

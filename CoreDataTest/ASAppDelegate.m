@@ -145,6 +145,8 @@ static NSString* carModelNames[] = {
         }
 
     }
+    
+    NSLog(@"Count = %d", [array count]);
 }
 
 - (void) printAllObjects {
@@ -217,7 +219,7 @@ static NSString* carModelNames[] = {
     //[self deleteAllObjects];
     
     [self printAllObjects];
-    */
+    
     
     
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
@@ -237,6 +239,10 @@ static NSString* carModelNames[] = {
     
     [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
     
+    //[request setFetchBatchSize:20];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"score > %f && courses.@count >= %d", 3.0, 3];
+    
+    [request setPredicate:predicate];
     
     
 
@@ -245,9 +251,20 @@ static NSString* carModelNames[] = {
     
     
     resultArray = [resultArray subarrayWithRange:NSMakeRange(0, 50)];
+
     
     
+     
+    
+    
+    NSError* requestError = nil;
+    
+    NSFetchRequest* request = [self.managedObjectModel fetchRequestTemplateForName:@"FetchStudents"];
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
     [self printArray:resultArray];
+    */
+    
+    
     
     return YES;
 }
