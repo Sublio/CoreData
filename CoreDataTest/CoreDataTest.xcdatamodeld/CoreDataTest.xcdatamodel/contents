@@ -4,6 +4,14 @@
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ASStudent" inverseName="car" inverseEntity="ASStudent" syncable="YES"/>
     </entity>
+    <entity name="ASCar1" representedClassName="ASCar" syncable="YES">
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="No Action" syncable="YES"/>
+    </entity>
+    <entity name="ASCar2" representedClassName="ASCar" syncable="YES">
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="No Action" syncable="YES"/>
+    </entity>
     <entity name="ASCourse" representedClassName="ASCourse" parentEntity="ASObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ASStudent" inverseName="courses" inverseEntity="ASStudent" syncable="YES"/>
@@ -33,5 +41,7 @@
         <element name="ASStudent" positionX="-1917" positionY="-1404" width="128" height="148"/>
         <element name="ASUniversity" positionX="-2187" positionY="-1170" width="128" height="88"/>
         <element name="Entity" positionX="-2088" positionY="-1458" width="128" height="45"/>
+        <element name="ASCar1" positionX="-2088" positionY="-1458" width="128" height="75"/>
+        <element name="ASCar2" positionX="-2079" positionY="-1449" width="128" height="75"/>
     </elements>
 </model>

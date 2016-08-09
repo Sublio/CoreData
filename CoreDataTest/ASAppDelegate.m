@@ -5,7 +5,6 @@
 //  Created by Denis Mordvinov on 31.01.16.
 //  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
-
 #import "ASAppDelegate.h"
 #import "ASStudent.h"
 #import "ASCar.h"
@@ -83,14 +82,13 @@ static NSString* carModelNames[] = {
     return university;
 }
 
-
-
-- (ASCourse*) addCourseWithName:(NSString*)name {
+- (ASCourse*) addCourseWithName:(NSString*) name {
     
     ASCourse* course =
     [NSEntityDescription insertNewObjectForEntityForName:@"ASCourse"
                                   inManagedObjectContext:self.managedObjectContext];
-    course.name = @"ONPU";
+    
+    course.name = name;
     
     return course;
 }
@@ -115,8 +113,7 @@ static NSString* carModelNames[] = {
     return resultArray;
 }
 
-
-- (void) printArray:(NSArray*)array {
+- (void) printArray:(NSArray*) array {
     
     for (id object in array) {
         
@@ -128,33 +125,33 @@ static NSString* carModelNames[] = {
         } else if ([object isKindOfClass:[ASStudent class]]) {
             
             ASStudent* student = (ASStudent*) object;
-            NSLog(@"STUDENT: %@, %@,SCORE: %f,COURSES: %d", student.firstName, student.lastName,[student.score floatValue], [student.courses count]);
+            NSLog(@"STUDENT: %@ %@, SCORE: %1.2f, COURSES: %d",
+                  student.firstName, student.lastName,
+                  [student.score floatValue], [student.courses count]);
             
         } else if ([object isKindOfClass:[ASUniversity class]]) {
             
             ASUniversity* university = (ASUniversity*) object;
             NSLog(@"UNIVERSITY: %@ Students: %d", university.name, [university.students count]);
             
-        }else if ([object isKindOfClass:[ASCourse class]]){
-            
+        } else if ([object isKindOfClass:[ASCourse class]]) {
             
             ASCourse* course = (ASCourse*) object;
             NSLog(@"COURSE: %@ Students: %d", course.name, [course.students count]);
-            
-            
         }
-
+        
+        //NSLog(@"%@", object);
     }
     
-    NSLog(@"Count = %d", [array count]);
+    NSLog(@"COUNT = %d", [array count]);
 }
 
 - (void) printAllObjects {
-        
-    NSArray* allObjects = [self allObjects];
-    [self printArray:allObjects];
     
-    }
+    NSArray* allObjects = [self allObjects];
+    
+    [self printArray:allObjects];
+}
 
 - (void) deleteAllObjects {
     
@@ -173,96 +170,139 @@ static NSString* carModelNames[] = {
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     /*
+     [self deleteAllObjects];
+     
+     NSError* error = nil;
+     
+     NSArray* courses = @[[self addCourseWithName:@"iOS"],
+     [self addCourseWithName:@"Android"],
+     [self addCourseWithName:@"PHP"],
+     [self addCourseWithName:@"Javascript"],
+     [self addCourseWithName:@"HTML"]];
+     
+     ASUniversity* university = [self addUniversity];
+     
+     [university addCourses:[NSSet setWithArray:courses]];
+     
+     for (int i = 0; i < 100; i++) {
+     
+     ASStudent* student = [self addRandomStudent];
+     
+     if (arc4random_uniform(1000) < 500) {
+     ASCar* car = [self addRandomCar];
+     student.car = car;
+     }
+     
+     student.university = university;
+     
+     NSInteger number = arc4random_uniform(5) + 1;
+     
+     while ([student.courses count] < number) {
+     ASCourse* course = [courses objectAtIndex:arc4random_uniform(5)];
+     if (![student.courses containsObject:course]) {
+     [student addCoursesObject:course];
+     }
+     }
+     }
+     
+     if (![self.managedObjectContext save:&error]) {
+     NSLog(@"%@", [error localizedDescription]);
+     }
+     
+     //[self deleteAllObjects];
+     
+     //[self printAllObjects];
+     */
+    /*
+     NSFetchRequest* request = [[NSFetchRequest alloc] init];
+     
+     NSEntityDescription* description =
+     [NSEntityDescription entityForName:@"ASCourse"
+     inManagedObjectContext:self.managedObjectContext];
+     
+     [request setEntity:description];
+     */
+    //[request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
     
-    NSError* error = nil;
+    /*
+     NSSortDescriptor* firstNameDescriptor =
+     [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+     
+     NSSortDescriptor* lastNameDescriptor =
+     [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+     
+     [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
+     */
     
-    [self deleteAllObjects];
+    /*
+     NSSortDescriptor* nameDescriptor =
+     [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+     
+     [request setSortDescriptors:@[nameDescriptor]];
+     */
+    //NSArray* validNames = @[@"Clyde", @"Pam", @"Rosanna"];
     
-    NSArray* courses = @[[self addCourseWithName:@"iOS"], [self addCourseWithName:@"Android"], [self addCourseWithName:@"PHP"],[self addCourseWithName:@"Javascript"], [self addCourseWithName:@"HTML"]];
+    /*
+     NSPredicate* predicate =
+     [NSPredicate predicateWithFormat:
+     @"score > %f AND score <= %f AND "
+     "courses.@count >= %d AND "
+     "firstName IN %@", 3.0, 3.5, 3, validNames];
+     */
+    //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"@max.students.score > %f", 3.9];
     
-    ASUniversity* university = [self addUniversity];
+    /*
+     NSPredicate* predicate =
+     [NSPredicate predicateWithFormat:@"SUBQUERY(students, $student, $student.car.model == %@).@count >= %d", @"BMW", 6];
+     
+     [request setPredicate:predicate];
+     */
     
-    [university addCourses:[NSSet setWithArray:courses]];
+    /*
+     [request setFetchBatchSize:20];
+     
+     NSError* requestError = nil;
+     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
+     
+     [self printArray:resultArray];
+     */
     
-    for (int i = 0; i < 100; i++) {
-        
-        ASStudent* student = [self addRandomStudent];
-        
-        if (arc4random_uniform(1000) < 500) {
-            ASCar* car = [self addRandomCar];
-            student.car = car;
-        }
-        
-        student.university = university;
-        
-        NSInteger number = arc4random_uniform(5) + 1;
-        
-        
-        while ([student.courses count] < number) {
-            
-            
-            ASCourse* course = [courses objectAtIndex:arc4random_uniform(5)];
-            
-            if (![student.courses containsObject:course]){
-                
-                [student addCoursesObject:course];
-            }
-        }
-        
-    }
-    
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    
-    //[self deleteAllObjects];
-    
-    [self printAllObjects];
-    
-    
+    /*
+     NSFetchRequest* request = [[self.managedObjectModel fetchRequestTemplateForName:@"FetchStudents"] copy];
+     
+     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:nil];
+     
+     NSSortDescriptor* firstNameDescriptor =
+     [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+     
+     NSSortDescriptor* lastNameDescriptor =
+     [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+     
+     [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
+     
+     [self printArray:resultArray];
+     */
     
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* description =
-    [NSEntityDescription entityForName:@"ASStudent"
+    [NSEntityDescription entityForName:@"ASCourse"
                 inManagedObjectContext:self.managedObjectContext];
     
     [request setEntity:description];
-    //[request setFetchBatchSize:20];
-    [request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
     
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:nil];
     
-    NSSortDescriptor* firstNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
-    
-    NSSortDescriptor* lastNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
-    
-    [request setSortDescriptors:@[firstNameDescriptor, lastNameDescriptor]];
-    
-    //[request setFetchBatchSize:20];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"score > %f && courses.@count >= %d", 3.0, 3];
-    
-    [request setPredicate:predicate];
-    
-    
-
-    NSError* requestError = nil;
-    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
-    
-    
-    resultArray = [resultArray subarrayWithRange:NSMakeRange(0, 50)];
-
-    
-    
-     
-    
-    
-    NSError* requestError = nil;
-    
-    NSFetchRequest* request = [self.managedObjectModel fetchRequestTemplateForName:@"FetchStudents"];
-    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
-    [self printArray:resultArray];
-    */
+    for (ASCourse* course in resultArray) {
+        
+        NSLog(@"COURSE NAME = %@", course.name);
+        NSLog(@"BEST STUDENTS:");
+        [self printArray:course.bestStudents];
+        NSLog(@"BUZY STUDENTS:");
+        [self printArray:course.studentsWithManyCourses];
+    }
     
     
     
@@ -277,7 +317,7 @@ static NSString* carModelNames[] = {
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -303,11 +343,11 @@ static NSString* carModelNames[] = {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -358,7 +398,7 @@ static NSString* carModelNames[] = {
         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
         
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

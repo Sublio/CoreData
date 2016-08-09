@@ -5,6 +5,7 @@
 //  Created by Denis Mordvinov on 31.01.16.
 //  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
+
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "ASObject.h"
@@ -16,6 +17,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) ASUniversity *university;
 @property (nonatomic, retain) NSSet *students;
+@property (nonatomic, retain) NSArray *bestStudents;
+@property (nonatomic, retain) NSArray *studentsWithManyCourses;
 @end
 
 @interface ASCourse (CoreDataGeneratedAccessors)
