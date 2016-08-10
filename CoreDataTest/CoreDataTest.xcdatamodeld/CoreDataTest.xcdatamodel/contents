@@ -4,10 +4,6 @@
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ASStudent" inverseName="car" inverseEntity="ASStudent" syncable="YES"/>
     </entity>
-    <entity name="ASCar2" representedClassName="ASCar" syncable="YES">
-        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="No Action" syncable="YES"/>
-    </entity>
     <entity name="ASCourse" representedClassName="ASCourse" parentEntity="ASObject" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ASStudent" inverseName="courses" inverseEntity="ASStudent" syncable="YES"/>
@@ -31,7 +27,6 @@
     <fetchRequest name="FetchStudents" entity="ASStudent" predicateString="score > 3 AND score &lt;= 3.5"/>
     <elements>
         <element name="ASCar" positionX="-1620" positionY="-1359" width="128" height="73"/>
-        <element name="ASCar2" positionX="-2414" positionY="-1530" width="128" height="75"/>
         <element name="ASCourse" positionX="-2286" positionY="-1344" width="128" height="88"/>
         <element name="ASObject" positionX="-2036" positionY="-1600" width="128" height="45"/>
         <element name="ASStudent" positionX="-1917" positionY="-1404" width="128" height="148"/>

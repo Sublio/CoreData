@@ -27,6 +27,7 @@
 		49EF2841189E119B00F2C4B3 /* ASUniversity.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EF2840189E119B00F2C4B3 /* ASUniversity.m */; };
 		49EF2844189E119C00F2C4B3 /* ASCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EF2843189E119C00F2C4B3 /* ASCourse.m */; };
 		49EF2847189E119C00F2C4B3 /* ASStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EF2846189E119C00F2C4B3 /* ASStudent.m */; };
+		8DA54F891D5B7E6D00AE4C2E /* DMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA54F881D5B7E6D00AE4C2E /* DMDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		49EF2843189E119C00F2C4B3 /* ASCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCourse.m; sourceTree = "<group>"; };
 		49EF2845189E119C00F2C4B3 /* ASStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStudent.h; sourceTree = "<group>"; };
 		49EF2846189E119C00F2C4B3 /* ASStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStudent.m; sourceTree = "<group>"; };
+		8DA54F871D5B7E6D00AE4C2E /* DMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDataManager.h; sourceTree = "<group>"; };
+		8DA54F881D5B7E6D00AE4C2E /* DMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				492F30D3189CB55C0016F9D6 /* ASAppDelegate.m */,
 				492F30D8189CB55C0016F9D6 /* Images.xcassets */,
 				492F30D5189CB55C0016F9D6 /* CoreDataTest.xcdatamodeld */,
+				8DA54F871D5B7E6D00AE4C2E /* DMDataManager.h */,
+				8DA54F881D5B7E6D00AE4C2E /* DMDataManager.m */,
 				492F30CA189CB55C0016F9D6 /* Supporting Files */,
 			);
 			path = CoreDataTest;
@@ -174,9 +179,9 @@
 			children = (
 				49EF2833189E0BCF00F2C4B3 /* ASCar.h */,
 				49EF2834189E0BCF00F2C4B3 /* ASCar.m */,
+				49EF283F189E119B00F2C4B3 /* ASUniversity.h */,
 				49EF2836189E0BCF00F2C4B3 /* ASObject.h */,
 				49EF2837189E0BCF00F2C4B3 /* ASObject.m */,
-				49EF283F189E119B00F2C4B3 /* ASUniversity.h */,
 				49EF2840189E119B00F2C4B3 /* ASUniversity.m */,
 				49EF2845189E119C00F2C4B3 /* ASStudent.h */,
 				49EF2846189E119C00F2C4B3 /* ASStudent.m */,
@@ -287,6 +292,7 @@
 				49EF2841189E119B00F2C4B3 /* ASUniversity.m in Sources */,
 				49EF2844189E119C00F2C4B3 /* ASCourse.m in Sources */,
 				492F30D4189CB55C0016F9D6 /* ASAppDelegate.m in Sources */,
+				8DA54F891D5B7E6D00AE4C2E /* DMDataManager.m in Sources */,
 				492F30D7189CB55C0016F9D6 /* CoreDataTest.xcdatamodeld in Sources */,
 				492F30D0189CB55C0016F9D6 /* main.m in Sources */,
 				49EF2835189E0BCF00F2C4B3 /* ASCar.m in Sources */,
