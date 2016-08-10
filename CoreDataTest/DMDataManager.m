@@ -10,4 +10,19 @@
 
 @implementation DMDataManager
 
+
++(DMDataManager*) sharedManager{
+    
+    
+    static DMDataManager* manager = nil;
+    
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[DMDataManager alloc] init];
+    });
+    
+    return manager;
+}
+
 @end

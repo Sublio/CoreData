@@ -10,4 +10,7 @@
 
 @interface DMDataManager : NSObject
 
++(DMDataManager*) sharedManager;
+
+
 @end
