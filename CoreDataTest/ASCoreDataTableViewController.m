@@ -3,7 +3,7 @@
 //  CoreDataTest
 //
 //  Created by sublio on 11/08/16.
-//  Copyright (c) 2016 Alex Skutarenko. All rights reserved.
+//  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
 
 #import "ASCoreDataTableViewController.h"
@@ -26,6 +26,9 @@
     return _managedObjectContext;
     
 }
+
+
+
 
 
 #pragma mark - Table View
@@ -57,8 +60,6 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }

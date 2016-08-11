@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASCoreDataTableViewController.h"
 
-@interface DMUniversityViewController : UITableViewController
+@interface DMUniversityViewController : ASCoreDataTableViewController
 
 @end
