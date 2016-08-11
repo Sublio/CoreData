@@ -3,7 +3,7 @@
 //  CoreDataTest
 //
 //  Created by sublio on 10/08/16.
-//  Copyright (c) 2016 Alex Skutarenko. All rights reserved.
+//  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,6 +18,8 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 + (DMDataManager*) sharedManager;
+
+- (void) generateAndAddUniversity;
 
 
 @end
