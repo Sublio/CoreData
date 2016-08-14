@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASCoreDataTableViewController : UITableViewController
+@interface ASCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
