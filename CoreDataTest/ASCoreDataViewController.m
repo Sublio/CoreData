@@ -6,14 +6,23 @@
 //  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
 
-#import "ASCoreDataTableViewController.h"
+#import "ASCoreDataViewController.h"
 #import "DMDataManager.h"
 
-@interface ASCoreDataTableViewController () <NSFetchedResultsControllerDelegate>
+@interface ASCoreDataViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
-@implementation ASCoreDataTableViewController
+@implementation ASCoreDataViewController
+
+- (instancetype)init
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        
+    }
+    return self;
+}
 
 
 - (NSManagedObjectContext*) managedObjectContext {

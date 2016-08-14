@@ -6,20 +6,23 @@
 //  Copyright (c) 2016 Denis Mordvinov. All rights reserved.
 //
 
-#import "DMUniversityViewController.h"
+#import "DMUniversitiesViewController.h"
 #import "ASUniversity.h"
+#import "DMCoursesViewController.h"
 
 
-@interface DMUniversityViewController ()
+@interface DMUniversitiesViewController ()
 
 
 @end
 
-@implementation DMUniversityViewController
+@implementation DMUniversitiesViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"Universities";
     
 }
 
@@ -97,14 +100,30 @@
     return _fetchedResultsController;
 }
 
+#pragma mark - UITableViewDataSource
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
     
     ASUniversity* university = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = university.name;
+    cell.detailTextLabel.text = nil;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
 }
+
+#pragma  mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ASUniversity* university = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    DMCoursesViewController* vc = [[DMCoursesViewController alloc]init];
+    vc.university = university;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 
 
 

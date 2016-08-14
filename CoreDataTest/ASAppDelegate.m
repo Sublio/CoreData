@@ -7,6 +7,7 @@
 //
 #import "ASAppDelegate.h"
 #import "DMDataManager.h"
+#import "DMUniversitiesViewController.h"
 
 @implementation ASAppDelegate
 
@@ -18,7 +19,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-
+    DMUniversitiesViewController* vc = [[DMUniversitiesViewController alloc]initWithStyle:UITableViewStylePlain];
+    
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    self.window.rootViewController = nav;
+    
     
     return YES;
 }
