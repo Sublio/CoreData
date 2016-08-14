@@ -29,6 +29,7 @@
 		49EF2847189E119C00F2C4B3 /* ASStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EF2846189E119C00F2C4B3 /* ASStudent.m */; };
 		8DA54F891D5B7E6D00AE4C2E /* DMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA54F881D5B7E6D00AE4C2E /* DMDataManager.m */; };
 		8DA55A1D1D6079AC002102A7 /* DMCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA55A1C1D6079AC002102A7 /* DMCoursesViewController.m */; };
+		8DA55A201D608D4A002102A7 /* ASStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA55A1F1D608D4A002102A7 /* ASStudentViewController.m */; };
 		8DBA0D5F1D5CD85A006CB6CD /* DMUniversitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA0D5E1D5CD85A006CB6CD /* DMUniversitiesViewController.m */; };
 		8DBA0D621D5CDAAF006CB6CD /* ASCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBA0D611D5CDAAF006CB6CD /* ASCoreDataViewController.m */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		8DA54F881D5B7E6D00AE4C2E /* DMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDataManager.m; sourceTree = "<group>"; };
 		8DA55A1B1D6079AC002102A7 /* DMCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCoursesViewController.h; sourceTree = "<group>"; };
 		8DA55A1C1D6079AC002102A7 /* DMCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCoursesViewController.m; sourceTree = "<group>"; };
+		8DA55A1E1D608D4A002102A7 /* ASStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStudentViewController.h; sourceTree = "<group>"; };
+		8DA55A1F1D608D4A002102A7 /* ASStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStudentViewController.m; sourceTree = "<group>"; };
 		8DBA0D5D1D5CD85A006CB6CD /* DMUniversitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUniversitiesViewController.h; sourceTree = "<group>"; };
 		8DBA0D5E1D5CD85A006CB6CD /* DMUniversitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUniversitiesViewController.m; sourceTree = "<group>"; };
 		8DBA0D601D5CDAAF006CB6CD /* ASCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCoreDataViewController.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				8DA55A1B1D6079AC002102A7 /* DMCoursesViewController.h */,
 				8DA55A1C1D6079AC002102A7 /* DMCoursesViewController.m */,
 				492F30CA189CB55C0016F9D6 /* Supporting Files */,
+				8DA55A1E1D608D4A002102A7 /* ASStudentViewController.h */,
+				8DA55A1F1D608D4A002102A7 /* ASStudentViewController.m */,
 			);
 			path = CoreDataTest;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				49EF2844189E119C00F2C4B3 /* ASCourse.m in Sources */,
 				8DBA0D621D5CDAAF006CB6CD /* ASCoreDataViewController.m in Sources */,
 				492F30D4189CB55C0016F9D6 /* ASAppDelegate.m in Sources */,
+				8DA55A201D608D4A002102A7 /* ASStudentViewController.m in Sources */,
 				8DA54F891D5B7E6D00AE4C2E /* DMDataManager.m in Sources */,
 				492F30D7189CB55C0016F9D6 /* CoreDataTest.xcdatamodeld in Sources */,
 				492F30D0189CB55C0016F9D6 /* main.m in Sources */,
